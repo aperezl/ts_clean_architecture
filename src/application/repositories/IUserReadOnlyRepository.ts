@@ -1,5 +1,5 @@
 import User from '../../domain/User'
 
 export default interface IUserReadOnlyRepository {
-  fetch(): Promise<User>;
+  fetch(user: User): Promise<User>;
 }

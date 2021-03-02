@@ -1,3 +1,5 @@
+import User from '../../domain/User'
+import IUserReadOnlyRepository from '../repositories/IUserReadOnlyRepository'
 import ISignInUseCase from './ISignInUseCase'
 import IUserDto from './IUserDto'
 
@@ -8,7 +10,15 @@ export default class SignInUseCase implements ISignInUseCase {
     this.userReadOnlyRepository = userReadOnlyRepository;
   }
 
-  public signIn(userDto: IUserDto): Promise<IUserDto> {
-    throw new Error("Method not implemented.");
+  public async signIn(userDto: IUserDto): Promise<IUserDto> {
+    const user = new User(
+      userDto.id,
+      userDto.name,
+      userDto.email,
+      userDto.password,
+      userDto.type
+    );
+    const foundUserDto = await this.userReadOnlyRepository.fetch(user);
+    return foundUserDto;
   }
 }
