@@ -17,7 +17,7 @@ export default class AuthController implements interfaces.Controller {
   }
 
   @httpPost("/signin")
-  public async signIn(
+  public signIn(
     @request() req: express.Request,
     @response() res: express.Response
   ) {

@@ -1,14 +1,16 @@
-import 'reflect-metadata'
+import "reflect-metadata";
+// tslint:disable-next-line:ordered-imports
+import "./entrypoint/controllers/AuthController";
 
-import bodyParser from 'body-parser'
-import express from 'express'
-import { Container } from 'inversify'
-import { InversifyExpressServer } from 'inversify-express-utils'
+import bodyParser from "body-parser";
+import express from "express";
+import { Container } from "inversify";
+import { InversifyExpressServer } from "inversify-express-utils";
 
-import IUserReadOnlyRepository from './application/repositories/IUserReadOnlyRepository'
-import AuthServiceLocator from './configuration/usecases/AuthServiceLocator'
-import { TYPES } from './constants/types'
-import UserRepository from './infrastructure/UserRepository'
+import IUserReadOnlyRepository from "./application/repositories/IUserReadOnlyRepository";
+import AuthServiceLocator from "./configuration/usecases/AuthServiceLocator";
+import { TYPES } from "./constants/types";
+import UserRepository from "./infrastructure/UserRepository";
 
 const container = new Container();
 
